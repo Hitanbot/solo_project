@@ -3,67 +3,75 @@ require_relative( "../models/player.rb" )
 require_relative( "../models/character.rb" )
 require("pry-byebug")
 
-character.delete_all()
-campaign.delete_all()
-player.delete_all()
+Character.delete_all()
+Campaign.delete_all()
+Player.delete_all()
 
 campaign1 = Campaign.new({
-  "name" => "Romero",
-  "type" => "Generic"
+  "name" => "Monster Hunters",
+  "setting" => "Unexplored Jungle",
+  "schedule" => "1900 to 2300 Sunday"
 })
 
 campaign1.save()
 
 campaign2 = Campaign.new({
-  "name" => "Raimi",
-  "type" => "Deadite"
+  "name" => "Gladiators",
+  "setting" => "Underground fighting Arena",
+  "schedule" => "1600 to 1800  Saturday"
 })
 
 campaign2.save()
 
 campaign3 = Campaign.new({
-  "name" => "Boyle",
-  "type" => "Runner"
+  "name" => "Running in the shadows",
+  "setting" => "Cairo, Mega city",
+  "schedule" => "1000 to 1300  Saturday"
 })
 
 campaign3.save()
 
 campaign4 = Campaign.new({
-  "name" => "Newell",
-  "type" => "Boomer"
+  "name" => "Forgotten Memories",
+  "setting" => "Mysterious forest",
+  "schedule" => "1800 to 2100  Wednesday"
 })
 
 campaign4.save()
 
 player1 = Player.new({
   "name" => "Maggie",
-  "run_speed" => 12
+  "games_played" => 12
 })
 
 player1.save()
 
 player2 = Player.new({
-  "name" => "Rick",
-  "run_speed" => 11
+  "name" => "Tom",
+  "games_played" => 2
 })
 
 player2.save()
 
 player3 = Player.new({
-  "name" => "Michonne",
-  "run_speed" => 15
+  "name" => "Adam",
+  "games_played" => 15
 })
 
 player3.save()
 
 player4 = Player.new({
   "name" => "Glenn",
-  "run_speed" => 30
+  "games_played" => 8
 })
 
 player4.save()
 
 character1 = Character.new({
+  "name" => "Fang",
+  "race" => "Shifter",
+  "class" => "Barbarian",
+  "level" => 11,
   "player_id" => player1.id,
   "campaign_id" => campaign1.id
 })
@@ -71,20 +79,32 @@ character1 = Character.new({
 character1.save()
 
 character2 = Character.new({
-  "player_id" => player2.id,
-  "campaign_id" => campaign2.id
+  "name" => "Cor",
+  "race" => "Aasimar",
+  "class" => "Bard",
+  "level" => 9,
+  "player_id" => player1.id,
+  "campaign_id" => campaign1.id
 })
 
 character2.save()
 
 character3 = Character.new({
-  "player_id" => player3.id,
-  "campaign_id" => campaign4.id
+  "name" => "Galian Bungler",
+  "race" => "Gnome",
+  "class" => "Wizard",
+  "level" => 3,
+  "player_id" => player1.id,
+  "campaign_id" => campaign1.id
 })
 character3.save()
 
 character4 = Character.new({
-  "player_id" => player3.id,
+  "name" => "Willow",
+  "race" => "Human",
+  "class" => "Druid",
+  "level" => 5,
+  "player_id" => player1.id,
   "campaign_id" => campaign1.id
 })
 

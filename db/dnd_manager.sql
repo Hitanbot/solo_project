@@ -8,22 +8,25 @@ CREATE TABLE campaigns
 (
   id SERIAL primary key,
   name VARCHAR(255) not null,
-  setting VARCHAR(255)
+  setting VARCHAR(255),
+  schedule VARCHAR(255)
 );
 
 CREATE TABLE players
 (
   id SERIAL primary key,
   name VARCHAR(255) not null,
-
+  games_played INT
 );
 
 CREATE TABLE characters
 (
   id SERIAL primary key,
   name VARCHAR(255) not null,
-  level VARCHAR(255)
-  campaign_id INT references campaigns(id)
+  race VARCHAR(255),
+  class VARCHAR(255),
+  level INT,
+  campaign_id INT references campaigns(id),
   player_id INT references players(id)
 );
 
@@ -31,6 +34,6 @@ CREATE TABLE items
 (
   id SERIAL primary key,
   name VARCHAR(255) not null,
-  effect VARCHAR(255)
+  effect VARCHAR(255),
   character_id INT references characters(id)
 );

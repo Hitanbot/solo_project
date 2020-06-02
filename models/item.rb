@@ -4,27 +4,28 @@ require_relative('../db/sql_runner')
 
 class Item
 
-  attr_reader( :name, :player_id, :id, :effect )
+  attr_reader( :name, :character_id, :id, :effect )
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @effect = options['effect']
-    @player_id = options['player_id'].to_i
+    @character_id = options['character_id'].to_i
   end
 
   def save()
     sql = "INSERT INTO items
     (
-      ,
-      player_id
+      name,
+      effect,
+      character_id
     )
     VALUES
     (
-      $1, $2
+      $1, $2, $3
     )
     RETURNING id"
-    values = [, @player_id]
+    values = [@name, @effect, @character_id]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -35,12 +36,12 @@ class Item
     return results.map { |item| Item.new( item ) }
   end
 
-  def player()
-    sql = "SELECT * FROM players
+  def character()
+    sql = "SELECT * FROM characters
     WHERE id = $1"
-    values = [@player_id]
+    values = [@character_id]
     results = SqlRunner.run( sql, values )
-    return Player.new( results.first )
+    return Character.new( results.first )
   end
 
   # def campaign()

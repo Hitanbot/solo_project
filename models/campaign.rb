@@ -20,10 +20,10 @@ class Campaign
     )
     VALUES
     (
-      $1, $2 $3
+      $1, $2, $3
     )
     RETURNING id"
-    values = [@name, @setting]
+    values = [@name, @setting,@schedule]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
