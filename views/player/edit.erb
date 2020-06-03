@@ -1,0 +1,15 @@
+<h1>Edit Player</h1>
+
+<form action="/players/<%= @player.id %>" method="post">
+
+  <label for ="name">Name</label>
+  <input id="name" type="text" name="name" value="<%= @player.name%>"/>
+
+
+  <label for ="games_played">No_of_games_played</label>
+    <input id="games_played" type="number" name="games_played" value="<%= @player.games_played %>"/>
+
+
+
+  <input type='submit' value="Edit Player">
+</form>

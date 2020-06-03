@@ -28,6 +28,22 @@ class Campaign
     @id = results.first()['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE campaigns
+    SET
+    (
+      name,
+      setting,
+      schedule
+    ) =
+    (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+    values = [@name, @setting,@schedule,@id]
+    SqlRunner.run(sql, values)
+  end
+
   def players
     sql = "SELECT p.* FROM players p INNER JOIN characters c ON c.player_id = p.id WHERE c.campaign_id = $1;"
     values = [@id]
@@ -59,6 +75,13 @@ class Campaign
   def self.delete_all
     sql = "DELETE FROM campaigns"
     SqlRunner.run( sql )
+  end
+
+  def self.destroy(id)
+    sql = "DELETE FROM campaigns
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
   end
 
 end

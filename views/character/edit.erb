@@ -1,0 +1,51 @@
+<h1>Edit Character</h1>
+
+<form action="/characters/ <%=@character.id%>" method="post">
+
+  <label for ="name">Name</label>
+  <input id="name" type="text" name="name" value="<%=@character.name%>"/>
+
+  <label for ="level">Level</label>
+    <input id="level" type="number" name="level" value="<%=@character.level%>" />
+
+  <label for ="race">Race</label>
+  <input id="race" type="text" name="race" value="<%=@character.race%>" />
+
+  <label for ="class">Class</label>
+  <input id="class" type="text" name="class" value="<%=@character.class%>" />
+
+
+
+
+
+
+
+
+  <label>
+  Select a campaign:
+    <select name="campaign_id" selected="<%= @character.campaign_id%>">
+      <% for campaign in @campaigns %>
+        <% if campaign.id == @character.campaign_id %>
+          <option value="<%= campaign.id %>" selected><%= campaign.name %></option>
+        <% else %>
+          <option value="<%= campaign.id %>"><%= campaign.name %></option>
+        <% end %>
+      <% end %>
+    </select>
+  </label>
+
+  <label>
+    Select a player:
+    <select name="player_id" selected="<%= @character.player_id%>">
+      <% for player in @players %>
+        <% if player.id == @character.player_id %>
+          <option value="<%= player.id %>" selected><%= player.name %></option>
+        <% else %>
+          <option value="<%= player.id %>"><%= player.name %></option>
+        <% end %>
+      <% end %>
+    </select>
+  </label>
+
+  <input type='submit' value="Edit character">
+</form>

@@ -1,0 +1,43 @@
+<h1>Create New Character</h1>
+
+<form action="/characters" method="post">
+
+  <label for ="name">Name</label>
+  <input id="name" type="text" name="name"/>
+
+  <label for ="level">Level</label>
+    <input id="level" type="number" name="level" />
+
+  <label for ="race">Race</label>
+  <input id="race" type="text" name="race"/>
+
+  <label for ="class">Class</label>
+  <input id="class" type="text" name="class"/>
+
+
+
+
+
+
+
+
+  <label>
+  Select a campaign:
+    <select name="campaign_id">
+      <% for campaign in @campaigns %>
+      <option value="<%= campaign.id %>"><%= campaign.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label>
+    Select a player:
+    <select name="player_id">
+      <% for player in @players %>
+      <option value="<%= player.id %>"><%= player.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type='submit' value="Create character">
+</form>

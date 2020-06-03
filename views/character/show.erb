@@ -9,3 +9,8 @@
 <p>Race: <%= @character.race %></p>
 
 <p>Class: <%= @character.class %></p>
+
+<a href='/characters/<%= @character.id%>/edit'>Edit Character</a>
+
+
+<form action="/characters/<%= @character.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

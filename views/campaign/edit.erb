@@ -1,0 +1,18 @@
+<h1>Edit Campaign</h1>
+
+<form action="/campaigns/<%=@campaign.id%>" method="post">
+
+  <label for ="name">Name</label>
+  <input id="name" type="text" name="name" value=<%=@campaign.name%>/>
+
+
+  <label for ="setting">Setting</label>
+  <input id="setting" type="text" name="setting"value=<%=@campaign.setting%>/>
+
+  <label for ="schedule">Schedule</label>
+  <input id="schedule" type="text" name="schedule"value=<%=@campaign.schedule%>/>
+
+
+
+  <input type='submit' value="Create campaign">
+</form>

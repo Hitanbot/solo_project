@@ -6,13 +6,23 @@
   <tr>
     <th>Characters</th>
     <th></th>
+    <th>Level</th>
+    <th></th>
     <th>Players</th>
   </tr>
   <% for character in @campaign.characters %>
   <tr>
     <td><a href="/characters/<%= character.id %>"><%= character.name %></a></td>
     <td>|</td>
+    <td><p><%= character.level %></p></td>
+    <td>|</td>
     <td><a href="/players/<%= character.player_id %>"><%= character.player.name %></a></td>
   </tr>
   <% end %>
+
 </table>
+
+
+<a href='/campaigns/<%= @campaign.id%>/edit'>Edit Campaign</a>
+
+<form action="/campaigns/<%= @campaign.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

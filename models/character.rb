@@ -34,6 +34,26 @@ class Character
     @id = results.first()['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE characters
+    SET
+    (
+      name,
+      race,
+      class,
+      level,
+      campaign_id,
+      player_id
+    ) =
+    (
+      $1, $2, $3, $4, $5, $6
+    )
+    WHERE id = $7"
+    values = [@name,@race,@class,@level,@campaign_id, @player_id,@id]
+    SqlRunner.run(sql, values)
+
+  end
+
   def self.all()
     sql = "SELECT * FROM characters"
     results = SqlRunner.run( sql )
