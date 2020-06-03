@@ -1,0 +1,65 @@
+body {
+  background: Black url('/images/black_dragon.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: White;
+  font-family: 'Playfair+Display', serif;
+  padding: 0px;
+  margin: 0px;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair+Display', cursive;
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  font-size: 1.8em;
+  color: darkred;
+  margin-bottom: 20px;
+}
+
+nav {
+  padding: 0px;
+  margin: 0px;
+  padding-right: 25px;
+}
+
+nav ul li {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: circle;
+}
+
+
+.flex {
+  display: flex;
+}
+
+.flex--row {
+  flex-direction: row;
+}
+
+
+a:link, a:visited {
+  background-color: DarkBlue;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: blue;
+}
+
+th {
+  padding: 0px 20px 10px 0px;
+  border-bottom: 1px solid papayawhip;
+}

@@ -1,6 +1,6 @@
-DROP TABLE campaigns;
-DROP TABLE players;
-DROP TABLE characters;
+DROP TABLE campaigns CASCADE;
+DROP TABLE players CASCADE;
+DROP TABLE characters CASCADE;
 DROP TABLE items;
 
 
@@ -26,8 +26,8 @@ CREATE TABLE characters
   race VARCHAR(255),
   class VARCHAR(255),
   level INT,
-  campaign_id INT references campaigns(id),
-  player_id INT references players(id)
+  campaign_id INT references campaigns(id) ON DELETE CASCADE,
+  player_id INT references players(id) ON DELETE CASCADE
 );
 
 CREATE TABLE items
@@ -35,5 +35,5 @@ CREATE TABLE items
   id SERIAL primary key,
   name VARCHAR(255) not null,
   effect VARCHAR(255),
-  character_id INT references characters(id)
+  character_id INT references characters(id) ON DELETE CASCADE
 );

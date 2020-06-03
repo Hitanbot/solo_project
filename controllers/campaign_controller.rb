@@ -22,7 +22,7 @@ post '/campaigns' do
 end
 
 get '/campaigns/:id/edit' do
-  @xampaigns = Campaign.find(params['id'])
+  @campaign = Campaign.find(params['id'])
   erb (:"campaign/edit")
 end
 
@@ -38,6 +38,6 @@ end
 
 post '/campaigns/:id' do
   campaign = Campaign.new(params)
-  campaigns.update
-  redirect to ('/campaign')
+  campaign.update
+  redirect to ('/campaigns')
 end
