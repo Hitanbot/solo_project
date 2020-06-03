@@ -1,5 +1,7 @@
 require_relative( '../db/sql_runner' )
 
+#comment for the sake of it
+
 class Player
 
   attr_reader( :name, :games_played, :id )

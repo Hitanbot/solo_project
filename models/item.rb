@@ -1,6 +1,6 @@
 require_relative('../db/sql_runner')
 
-# probably a future thing for now
+# probably a future thing for now just adding to the comment
 
 class Item
 
