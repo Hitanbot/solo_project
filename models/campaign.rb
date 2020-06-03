@@ -35,6 +35,13 @@ class Campaign
     return results.map { |player| Player.new(player) }
   end
 
+  def characters
+    sql="SELECT * FROM characters c WHERE c.campaign_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |character| Character.new(character) }
+  end
+
   def self.all()
     sql = "SELECT * FROM campaigns"
     results = SqlRunner.run( sql )

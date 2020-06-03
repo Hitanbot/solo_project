@@ -1,0 +1,16 @@
+<h1>Characters</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Level</th>
+  </tr>
+  <% for character in @characters %>
+  <tr>
+    <td><a href="/characters/<%= character.id %>"><%= character.name %></a></td>
+    <td>|</td>
+    <td><%= character.level %></td>
+  </tr>
+  <% end %>
+</table>

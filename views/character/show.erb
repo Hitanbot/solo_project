@@ -1,0 +1,11 @@
+<h1>Character: <%= @character.name %></h1>
+
+<p>Player:<a href="/players/<%= @character.player_id %>"><%= @character.player.name %></a></p>
+
+<p>Campaign:<a href="/campaigns/<%= @character.campaign_id %>"><%= @character.campaign.name %></a></p>
+
+<p>Level: <%= @character.level %></p>
+
+<p>Race: <%= @character.race %></p>
+
+<p>Class: <%= @character.class %></p>

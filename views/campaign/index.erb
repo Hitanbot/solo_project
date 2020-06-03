@@ -1,0 +1,20 @@
+<h1>Campaigns</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Setting</th>
+    <th></th>
+    <th>Schedule</th>
+  </tr>
+  <% for campaign in @campaigns %>
+  <tr>
+    <td><a href="/campaigns/<%= campaign.id %>"><%= campaign.name %></a></td>
+    <td>|</td>
+    <td><%= campaign.setting %></td>
+    <td>|</td>
+    <td><%= campaign.schedule %></td>
+  </tr>
+  <% end %>
+</table>

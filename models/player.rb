@@ -33,10 +33,17 @@ class Player
     return results.map { |campaign| Campaign.new(campaign) }
   end
 
+  def characters
+    sql="SELECT * FROM characters c WHERE c.player_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |character| Character.new(character) }
+  end
+
   def self.all()
     sql = "SELECT * FROM players"
     results = SqlRunner.run( sql )
-    return results.map { |player| player.new( player ) }
+    return results.map { |player| Player.new( player ) }
   end
 
   def self.find( id )
@@ -44,7 +51,7 @@ class Player
     WHERE id = $1"
     values = [id]
     results = SqlRunner.run( sql, values )
-    return player.new( results.first )
+    return Player.new( results.first )
   end
 
   def self.delete_all

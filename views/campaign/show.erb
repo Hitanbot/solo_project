@@ -1,0 +1,18 @@
+<h1>Campaign: <%= @campaign.name %></h1>
+
+<p>Setting: <%= @campaign.setting %></p>
+
+<table>
+  <tr>
+    <th>Characters</th>
+    <th></th>
+    <th>Players</th>
+  </tr>
+  <% for character in @campaign.characters %>
+  <tr>
+    <td><a href="/characters/<%= character.id %>"><%= character.name %></a></td>
+    <td>|</td>
+    <td><a href="/players/<%= character.player_id %>"><%= character.player.name %></a></td>
+  </tr>
+  <% end %>
+</table>

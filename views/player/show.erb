@@ -1,0 +1,18 @@
+<h1>Player: <%= @player.name %></h1>
+
+<p>Games_played: <%= @player.games_played %></p>
+
+<table>
+  <tr>
+    <th>Characters</th>
+    <th></th>
+    <th>Level</th>
+  </tr>
+  <% for character in @player.characters %>
+  <tr>
+    <td><a href="/characters/<%= character.id %>"><%= character.name %></a></td>
+    <td>|</td>
+    <td><%= character.level%></td>
+  </tr>
+  <% end %>
+</table>
